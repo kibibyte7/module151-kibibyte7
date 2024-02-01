@@ -12,7 +12,7 @@ Les apprentis replacent les différents éléments dans les parties client et se
 • Créez un fichier PHP (serveur.php) qui contient le code suivant :
 	
   ```php
-<?php
+		<?php
 			echo '<equipes>';
 			echo '<equipe><id>3</id><nom>SC Bern</nom></equipe>';
 			echo '<equipe><id>4</id><nom>Fribourg-Gottéron</nom></equipe>';
