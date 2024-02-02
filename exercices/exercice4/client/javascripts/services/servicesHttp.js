@@ -5,7 +5,7 @@
  * @version 1.0 / 20-SEP-2013
  */
 
-var BASE_URL = "mettez ici l'adresse du PHP que vous souhaitez appeler";
+var BASE_URL = "../";
 
 /**
  * Fonction permettant de charger les données d'équipe.
@@ -16,7 +16,7 @@ function chargerTeam(successCallback, errorCallback) {
     $.ajax({
     type: "GET",
     dataType: "xml",
-    url: BASE_URL,
+    url: BASE_URL + "serveur.php",
     success: successCallback,
     error: errorCallback
     });
