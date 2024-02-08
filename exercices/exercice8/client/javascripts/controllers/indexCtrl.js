@@ -35,6 +35,8 @@ function chargerPlayerSuccess(data, text, jqXHR) {
 	// Appelé lorsque la liste des joueurs est reçue
     var cmbJoueurs = document.getElementById("cmbJoueurs");
 
+    clearList(cmbJoueurs.options);
+
     for(let i = 0; i < data.body.length; i++){
         var currentJoueur = data.body[i];
         var joueur = new Joueur();
@@ -63,6 +65,12 @@ function chargerTeamError(request, status, error) {
  */
 function chargerPlayerError(request, status, error) {
     alert("erreur : " + error + ", request: " + request + ", status: " + status);
+}
+
+function clearList(list){
+    for(i = list.length -1; i >= 0; i--) {
+        list.remove(i);
+     }
 }
 
 /**
