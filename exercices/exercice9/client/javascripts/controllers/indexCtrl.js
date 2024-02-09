@@ -18,30 +18,43 @@ function chargerPersonnelSuccess(data, text, jqXHR) {
 	if ($(data).find("message").text() !== '')
 	{
 		alert ($(data).find("message").text());
-	}
-	else{
-		$(data).find("user").each(function() {		
-			cmbPersonnel.options[cmbPersonnel.options.length] = new Option($(this).find("name").text() + " - " + $(this).find("salaire").text());
-		});
+	} else {
+
+		cmbPersonnel.options.length = 0;
+
+		for(let i = 0; i < data.body.length; i++){		
+
+			cmbPersonnel.options[i] = new Option(data.body[i].name + " - " + data.body[i].salaire);
+
+		}
+
 	}
 }
 
 function connectSuccess(data, text, jqXHR) {
+
     var cmbPersonnel = document.getElementById("cmbPersonnel");
+
     cmbPersonnel.options.length = 0;
-    if ($(data).find("result").text() == 'true')
-	{
+
+    if(data.code === 200){
+
 		alert("Login ok");
+
 		chargerPersonnel(chargerPersonnelSuccess, CallbackError);
-	}
-	else{
+
+	} else {
+
 		alert("Erreur lors du login");
+
 	}
 
 }
 
 function disconnectSuccess(data, text, jqXHR) {
+
     alert("Utilisateur déconnecté");
+
 	chargerPersonnel(chargerPersonnelSuccess, CallbackError);
 }
 

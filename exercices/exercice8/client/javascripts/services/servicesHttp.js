@@ -5,7 +5,7 @@
  * @version 1.0 / 20-SEP-2013
  */
 
-var BASE_URL = "http://localhost/";
+var BASE_URL = "http://localhost";
 
 /**
  * Fonction permettant de charger les données d'équipe.
@@ -16,7 +16,7 @@ function chargerTeam(successCallback, errorCallback) {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: BASE_URL + "EquipesServices.php",
+        url: `${BASE_URL}/EquipesServices.php`,
         success: successCallback,
         error: errorCallback
     });
@@ -33,7 +33,7 @@ function chargerPlayers(teamid, successCallback, errorCallback) {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: `${BASE_URL}JoueurServices.php?FK_equipe=${teamid}`,
+        url: `${BASE_URL}/JoueurServices.php?FK_equipe=${teamid}`,
         success: successCallback,
         error: errorCallback
     });

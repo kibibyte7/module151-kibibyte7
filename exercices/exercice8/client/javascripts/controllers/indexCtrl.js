@@ -16,12 +16,13 @@ function chargerTeamSuccess(data, text, jqXHR) {
     var cmbEquipes = document.getElementById("cmbEquipes");
 
     cmbEquipes.options.length = 0;
+
     for(let i = 0; i < data.body.length; i++){
         var currentEquipe = data.body[i];
         var equipe = new Equipe();
         equipe.setNom(currentEquipe.Nom);
         equipe.setPk(currentEquipe.PK_equipe);
-        cmbEquipes.options[cmbEquipes.options.length] = new Option(equipe, JSON.stringify(equipe));
+        cmbEquipes.options[i] = new Option(equipe, JSON.stringify(equipe));
     }
 }
 
@@ -35,14 +36,14 @@ function chargerPlayerSuccess(data, text, jqXHR) {
 	// Appelé lorsque la liste des joueurs est reçue
     var cmbJoueurs = document.getElementById("cmbJoueurs");
 
-    clearList(cmbJoueurs.options);
+    cmbJoueurs.options.length = 0
 
     for(let i = 0; i < data.body.length; i++){
         var currentJoueur = data.body[i];
         var joueur = new Joueur();
         joueur.setNom(currentJoueur.Nom);
         joueur.setPoints(currentJoueur.Points);
-        cmbJoueurs.options[cmbJoueurs.options.length] = new Option(joueur, JSON.stringify(joueur));
+        cmbJoueurs.options[i] = new Option(joueur, JSON.stringify(joueur));
     }
     
 }
@@ -65,12 +66,6 @@ function chargerTeamError(request, status, error) {
  */
 function chargerPlayerError(request, status, error) {
     alert("erreur : " + error + ", request: " + request + ", status: " + status);
-}
-
-function clearList(list){
-    for(i = list.length -1; i >= 0; i--) {
-        list.remove(i);
-     }
 }
 
 /**

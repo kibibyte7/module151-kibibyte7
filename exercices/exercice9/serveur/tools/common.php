@@ -1,12 +1,12 @@
 <?php
-include_once 'constantes/Constantes.php';
+include_once 'constantes/constantes.php';
 
 /**
  * Génère une réponse JSON formatée avec un code de statut, un message et des données.
  *
- * @param int $code Le code de statut HTTP de la réponse.
- * @param string $message Le message associé à la réponse.
- * @param array $data Les données à inclure dans le corps de la réponse.
+ * @param mixed $code Le code de statut HTTP de la réponse.
+ * @param mixed $message Le message associé à la réponse.
+ * @param mixed $data Les données à inclure dans le corps de la réponse.
  *
  * @return string La réponse JSON générée.
  */

@@ -5,7 +5,7 @@
  * @version 1.0 / 20-SEP-2013
  */
 
-var BASE_URL = "http://localhost/EXERCICE%206/PartieServeur/serveur.php";
+var BASE_URL = "http://localhost/serveur.php";
 
 /**
  * Fonction permettant de charger les données d'équipe.
@@ -15,9 +15,12 @@ var BASE_URL = "http://localhost/EXERCICE%206/PartieServeur/serveur.php";
 function chargerPersonnel(successCallback, errorCallback) {
     $.ajax({
         type: "GET",
-        dataType: "xml",
+        dataType: "json",
         url: BASE_URL,
         data: 'action=getInfos',
+        xhrFields: {
+            withCredentials: true
+        },
         success: successCallback,
         error: errorCallback
     });
@@ -33,9 +36,12 @@ function chargerPersonnel(successCallback, errorCallback) {
 function connect(passwd, successCallback, errorCallback) {
     $.ajax({
         type: "POST",
-        dataType: "xml",
+        dataType: "json",
         url: BASE_URL,
         data: 'action=connect&password=' + passwd,
+        xhrFields: {
+            withCredentials: true
+        },
         success: successCallback,
         error: errorCallback
     });
@@ -50,9 +56,12 @@ function connect(passwd, successCallback, errorCallback) {
 function disconnect(successCallback, errorCallback) {
     $.ajax({
         type: "POST",
-        dataType: "xml",
+        dataType: "json",
         url: BASE_URL,
         data: 'action=disconnect',
+        xhrFields: {
+            withCredentials: true
+        },
         success: successCallback,
         error: errorCallback
     });

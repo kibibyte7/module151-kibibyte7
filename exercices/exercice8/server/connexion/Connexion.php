@@ -1,5 +1,5 @@
 <?php
-include_once('config/ConfigConnexion.php');
+include_once('config/configConnexion.php');
 
 class Connexion {
 	
